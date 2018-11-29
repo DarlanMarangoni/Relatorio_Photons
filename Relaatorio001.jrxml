@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Relaatorio001" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1faba6fd-d572-41ed-bedd-be2227dad513">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Photons"/>
+	<subDataset name="Dataset1" uuid="41baba96-a0ea-454d-b7de-69059cc603a0">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT cliente.nome, cidade.nome as Cidade, estado.nome as Estado, inspecao.data, equipamento.localizacao, equipamento.descricao as EquipamentoDesc,
+	   componente.identificacao, componente.descricao as ComponenteDesc, componente.imagem_componente, 
+       termograma.abrangencia, termograma.carga, termograma.classificacao, termograma.corrente_medida1, termograma.corrente_medida2,
+       termograma.corrente_medida3, termograma.emissividade, termograma.recomendacao, termograma.risco_ao_sistema,
+       termograma.temp_corrigida1, termograma.temp_corrigida2, termograma.temp_corrigida3, termograma.temp_medida1,
+       termograma.temp_medida2, termograma.temp_medida3, termograma.temperatura_ambiente, termograma.velocidade_vento,
+       inspetor.nome as nomeInspetor FROM cliente
+       INNER JOIN endereco on endereco.cliente_id = cliente.id
+       INNER JOIN cidade on cidade.id = endereco.cidade_id
+       INNER JOIN estado on estado.id = cidade.estado_id
+       INNER JOIN inspetor on inspetor.id = cliente.inspetor_id
+       INNER JOIN inspecao on inspecao.cliente_id = cliente.id
+       INNER JOIN inspecao_equipamento on inspecao_equipamento.inspecao_id = inspecao.id
+       INNER JOIN equipamento on equipamento.id = inspecao_equipamento.equipamento_id
+       INNER JOIN equipamento_componente on equipamento_componente.equipamento_id = equipamento.id
+       INNER JOIN componente on componente.id = equipamento_componente.componente_id
+       INNER JOIN termograma on termograma.id = componente.termograma_id]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="Cidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Cidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cidade"/>
+	</field>
+	<field name="Estado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
+	</field>
+	<field name="data" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="data"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="inspecao"/>
+	</field>
+	<field name="localizacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="localizacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="equipamento"/>
+	</field>
+	<field name="EquipamentoDesc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="EquipamentoDesc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="equipamento"/>
+	</field>
+	<field name="identificacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="identificacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="componente"/>
+	</field>
+	<field name="ComponenteDesc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ComponenteDesc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="componente"/>
+	</field>
+	<field name="imagem_componente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="imagem_componente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="componente"/>
+	</field>
+	<field name="abrangencia" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="abrangencia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="carga" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="carga"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="classificacao" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="classificacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="corrente_medida1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="corrente_medida1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="corrente_medida2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="corrente_medida2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="corrente_medida3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="corrente_medida3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="emissividade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="emissividade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="recomendacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="recomendacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="risco_ao_sistema" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="risco_ao_sistema"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="temp_corrigida1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="temp_corrigida1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="temp_corrigida2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="temp_corrigida2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="temp_corrigida3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="temp_corrigida3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="temp_medida1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="temp_medida1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="temp_medida2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="temp_medida2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="temp_medida3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="temp_medida3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="temperatura_ambiente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="temperatura_ambiente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="velocidade_vento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="velocidade_vento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="termograma"/>
+	</field>
+	<field name="nomeInspetor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nomeInspetor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="inspetor"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="110" y="0" width="330" height="73" uuid="4bbe3c1f-50e8-44cc-afd8-8e9cf208058c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[INSPEÇÃO TERMOGRÁFICA SISTEMAS ELÉTRICOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="713" splitType="Stretch">
+			<textField>
+				<reportElement x="50" y="0" width="100" height="30" uuid="2d705395-24a9-41b8-bc22-aa17d5c06dc8"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="50" height="30" uuid="e4eca588-4a4c-461e-b7a4-c9cd73f87244"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="30" width="100" height="30" uuid="61711a64-6009-4c42-859a-5e34e6322cc9"/>
+				<textFieldExpression><![CDATA[$F{Cidade}+"-"+$F{Estado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="50" height="30" uuid="9dfa4d1b-e3cb-42a9-a045-f9dd1cae1b09"/>
+				<textElement markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cidade:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="460" y="30" width="90" height="30" uuid="706570e7-b398-48c8-b3ce-e9c7c3832809"/>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="30" width="50" height="30" uuid="6ee55b9e-dc8e-4377-9372-729760f1164f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="0" width="50" height="30" uuid="f5cd23e7-d9d1-49a8-a9e2-cc117012c0c6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="70" width="470" height="30" uuid="a141192b-6759-4aa8-967e-c88a7cfb6354"/>
+				<textFieldExpression><![CDATA[$F{localizacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="70" width="88" height="30" uuid="6630e18f-f1a0-4d7a-84ac-5475d7d9d9f9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Localização:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="100" width="470" height="30" uuid="02551389-c9ae-4e7f-8a2b-f697fecb232e"/>
+				<textFieldExpression><![CDATA[$F{EquipamentoDesc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="100" width="88" height="30" uuid="b8265b9e-60f6-4c6d-a350-2abfe43a4dc0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equipamento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="160" width="470" height="30" uuid="f638b831-af59-4f35-8ec0-9847268dccc5"/>
+				<textFieldExpression><![CDATA[$F{ComponenteDesc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="160" width="88" height="30" uuid="dad4f5bc-dc64-46f6-b761-dc8c93e309b6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Componente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="130" width="470" height="30" uuid="ee4cf84d-a250-49c6-b4cc-d57555fc9939"/>
+				<textFieldExpression><![CDATA[$F{identificacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="130" width="88" height="30" uuid="a8fcbefe-8239-49f9-a227-f1fadb1d5cd4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Identificação:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="225" width="160" height="120" uuid="6586b629-1c4c-4aef-a3f7-80e149254fe7"/>
+				<imageExpression><![CDATA["https://vignette.wikia.nocookie.net/simpsons/images/3/33/Homer.png/revision/latest?cb=20151102180219&path-prefix=pt"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="65" y="205" width="30" height="20" uuid="e6de2739-c728-4b51-b38f-8476387574d9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Foto]]></text>
+			</staticText>
+			<image>
+				<reportElement x="370" y="220" width="170" height="115" uuid="6da2997c-2059-43e0-a3ff-9380df856612"/>
+				<imageExpression><![CDATA["https://vignette.wikia.nocookie.net/simpsons/images/b/bf/Homer_J_Simpson.png/revision/latest?cb=20121213215310&path-prefix=pt"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="430" y="200" width="70" height="20" uuid="086f37bd-d3c2-4eda-9b77-111ac43674bf"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Termograma]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="350" width="180" height="20" uuid="b2ff3d2b-3ae2-482e-8939-8d9693fd4542"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dados de Campo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="370" width="70" height="20" uuid="0c34e7d6-82c7-4d8d-ac24-705329b6d154"/>
+				<textFieldExpression><![CDATA[$F{temperatura_ambiente}+"°C"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="370" width="110" height="20" uuid="7029c4da-ad12-4896-a6ea-db62e37ac668"/>
+				<text><![CDATA[Temperatura ambiente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="390" width="70" height="20" uuid="bc93dc6d-19b9-4149-b0b9-c6d0238adee1"/>
+				<textFieldExpression><![CDATA[$F{carga}+"%"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="390" width="110" height="20" uuid="6c7a5400-e6e9-49c3-9e87-f9a31cf41e59"/>
+				<text><![CDATA[carga]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="410" width="70" height="20" uuid="fb316fe3-82e3-43c7-9346-cc18e80cf1b4"/>
+				<textFieldExpression><![CDATA[$F{emissividade}+"-"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="410" width="110" height="20" uuid="b7293b45-8f65-4c99-9091-be36af64a399"/>
+				<text><![CDATA[emissividade]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="430" width="70" height="20" uuid="4d2f143d-b9c2-40f6-aa42-1b7f6613fb89"/>
+				<textFieldExpression><![CDATA[$F{velocidade_vento}+"m/s"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="430" width="110" height="20" uuid="1042bf25-2eb5-42d1-a321-26e4a2b44bad"/>
+				<text><![CDATA[velocidade_vento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="390" width="90" height="20" uuid="2f8782fe-d40d-4d3f-b40b-2818482a14fa"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Temp. medida:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="410" width="90" height="20" uuid="f24072f9-f04c-42ed-b7d8-b8f8fb4c0c1f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Temp. corrigida:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="430" width="90" height="20" uuid="1bcb71ec-f0c0-4832-a00e-c4b9dac2949c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Corrente medida:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="370" width="70" height="20" uuid="7b402a98-0e95-42b2-9015-8cfe61128a3e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fase R]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="370" width="70" height="20" uuid="e9593472-a9de-4635-ad7a-f6ce8f86508f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fase S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="370" width="70" height="20" uuid="336702b3-d184-40bc-a05f-c78fe6226b78"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fase T]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="340" y="390" width="70" height="20" uuid="98cab8cd-473f-4e2b-81b2-048de23a37f4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{temp_medida1}+"°C"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="390" width="70" height="20" uuid="ef12c0ba-4674-4d1b-aca7-ca31ce882b02"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{temp_medida2}+"°C"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="390" width="70" height="20" uuid="c0667d99-b93b-4e32-9f7d-e8b849f14f92"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{temp_medida3}+"°C"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="410" width="70" height="20" uuid="ed5b14d0-47ef-4a86-9a2c-acbdf97dd336"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{temp_corrigida1}+"°C"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="410" width="70" height="20" uuid="409e58cf-c15c-4a17-898a-e4f8653a3a80"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{temp_corrigida2}+"°C"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="410" width="70" height="20" uuid="065c2ba5-6b2a-4535-9cfa-ecdc949be54f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{temp_corrigida3}+"°C"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="430" width="70" height="20" uuid="dc930213-db4b-4f72-a873-cb8e0f4e481e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{corrente_medida1}+"A"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="430" width="70" height="20" uuid="fb0a26d5-b0c1-4408-9401-106c4c93569a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{corrente_medida2}+"A"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="430" width="70" height="20" uuid="7ae93563-94aa-460a-a020-bb6db4bdedcf"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{corrente_medida3}+"A"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="460" width="90" height="20" uuid="e2baaf33-0e2e-458f-89bf-4a40e39e0118"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Classificação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="460" width="90" height="20" uuid="824607c2-a584-4c0f-bdca-65d55fa9987e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Abrangência]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="460" width="90" height="20" uuid="a6951e12-4787-4e1d-8e97-3f60e50cfec8"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Risco ao sistema]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="480" width="90" height="20" uuid="d216a56c-3b46-45ac-9d0d-088418f898eb"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{classificacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="480" width="90" height="20" uuid="a0dbdcfd-e068-48a1-857a-d933ef81269e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{abrangencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="480" width="90" height="20" uuid="0b375f19-9004-4282-9093-9bcb1ac0ac91"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{risco_ao_sistema}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="530" width="550" height="20" uuid="4979a1ea-aefe-40c4-bc9b-9984a2e49328"/>
+				<textFieldExpression><![CDATA[$F{recomendacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="510" width="100" height="20" uuid="b424af58-905f-4110-9255-2ec60e8e05d6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recomendações:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="65" y="670" width="124" height="20" uuid="658399fd-83fc-4530-965a-bf2f38143cb7"/>
+				<textFieldExpression><![CDATA[$F{nomeInspetor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="670" width="64" height="20" uuid="cf3e1964-69ae-462c-9cd3-84c21c330aa0"/>
+				<text><![CDATA[Executado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="240" y="670" width="120" height="20" uuid="312e53d7-9a36-45ae-b5e2-48243396f95e"/>
+				<textFieldExpression><![CDATA[$F{nomeInspetor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="190" y="670" width="50" height="20" uuid="75068143-a6f3-4c7c-9040-648241270f71"/>
+				<text><![CDATA[Aprovado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="390" y="670" width="90" height="20" uuid="d9255026-c375-48d1-adfa-9a98461bcc81"/>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="360" y="670" width="30" height="20" uuid="fe064003-14ee-4368-aa68-270fdb567f09"/>
+				<text><![CDATA[data:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="690" width="550" height="20" uuid="6b7bc511-7b8f-4a5d-95e5-b3a69e763ee9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="480" y="670" width="40" height="20" uuid="7eca9242-6d46-4709-bbc4-13868e8c61a9"/>
+				<text><![CDATA[Folha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="520" y="670" width="30" height="20" uuid="209dedd9-6bce-4e21-9f85-0f7d046337db"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="550" width="62" height="20" uuid="5be4c095-00d7-4a77-872a-1f6a0e0aa6b9"/>
+				<text><![CDATA[Reparo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="570" width="30" height="20" uuid="93b057ce-35e8-40e0-8098-dc29d855e86c"/>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="570" width="62" height="20" uuid="eeaa73af-0426-4f21-a866-e88e2c4f48e8"/>
+				<text><![CDATA[Inicio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="570" width="62" height="20" uuid="fc672087-2fab-492b-acc5-56144898a605"/>
+				<text><![CDATA[Termino:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="590" width="62" height="20" uuid="f8c76542-605a-4ab4-9213-65ccce0064da"/>
+				<text><![CDATA[Executante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="590" width="62" height="20" uuid="1e2bf035-469a-484d-a749-f4f8448e84fa"/>
+				<text><![CDATA[O.S.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="610" width="62" height="20" uuid="1eb47fab-c87f-4b48-b90c-d8a6662fc5f9"/>
+				<text><![CDATA[Observações:]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
